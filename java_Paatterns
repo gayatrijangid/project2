@@ -1,0 +1,225 @@
+import java.util.*;
+
+public class J {
+
+    public static boolean isprime(int n) {
+        if (n == 2) {
+            return true;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void printRange(int n) {
+        for (int i = 2; i <= n; i++) {
+            if (isprime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+
+    }
+
+    public static void bintodec(int binNum) {
+        int myNum = binNum;
+        int pow = 0;
+        int dec = 0;
+        while (binNum > 0) {
+            int lastDigit = binNum % 10;
+            dec = dec + lastDigit * (int) Math.pow(2, pow);
+
+            pow++;
+            binNum = binNum / 10;
+        }
+        System.out.println("decimal of  " + myNum + " is " + dec);
+    }
+
+    public static void decTobin(int decNum) {
+        int pow = 0;
+        int bin = 0;
+        while (decNum > 0) {
+            int rem = decNum % 2;
+            bin = bin + rem * (int) Math.pow(10, pow);
+            pow++;
+            decNum = decNum / 2;
+        }
+        System.out.println("the binary of " + decNum + " is " + bin);
+    }
+
+    public static void hollow_rectangle(int rows, int cols) {
+        // outer loop
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                if (i == 1 || i == rows || j == 1 || j == cols) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println();
+        }
+    }
+
+    public static void invertedHalfPyramid(int rows) {
+        // outer loop
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void inverted_num(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i + 1; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void floyd(int n) {
+        int counter = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(counter + " ");
+                counter++;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void triangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                int add = i+j;
+                if (add % 2 == 0) {
+                    System.out.print("1");
+                } else {
+                    System.out.print("0");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void butterfly(int n){
+        for(int i =1;i<=n;i++){
+              //stars-i
+                for(int j=1;j<=i;j++){
+                    System.out.print("*");
+                }
+                //spaces-2*(n-i)
+                for(int j =1;j<=2*(n-i);j++){
+                System.out.print(" ");
+                }
+                //stars-i
+                 for(int j=1;j<=i;j++){
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+            for(int i =n;i>=1;i--){
+              //stars-i
+                for(int j=1;j<=i;j++){
+                    System.out.print("*");
+                }
+                //spaces-2*(n-i)
+                for(int j =1;j<=2*(n-i);j++){
+                System.out.print(" ");
+                }
+                //stars-i
+                 for(int j=1;j<=i;j++){
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+    
+public static void rhombus(int n){
+    for(int i=1;i<=n;i++){
+        //spaces
+        for(int j=1;j<=n-i;j++){
+            System.out.print(" ");
+        }
+
+        //stars
+        for(int j=1;j<=n;j++){
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
+
+public static void hollow_rhombus(int n){
+      for(int i=1;i<=n;i++){
+         //spaces
+        for(int j=1;j<=n-i;j++){
+            System.out.print(" ");
+        }
+        //hollow rectangle
+        for(int j=1;j<=n;j++){
+            if(i==1||i==n||j==1||j==n){
+                System.out.print("*");
+            }else{
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+      }
+}
+
+public static void diamond(int n){
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n-i;j++){
+            System.out.print(" ");
+        }
+        for(int j=1;j<=2*i-1;j++){
+             System.out.print("*");
+        }
+        System.out.println();
+    }
+     for(int i=n;i>=1;i--){
+        for(int j=1;j<=n-i;j++){
+            System.out.print(" ");
+        }
+        for(int j=1;j<=2*i-1;j++){
+             System.out.print("*");
+        }
+        System.out.println();
+    }
+}
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+       // hollow_rhombus(5);
+        diamond(3);
+        //triangle(5);
+        // floyd(5);
+        //butterfly(4);
+        // inverted_num(5);
+        // invertedHalfPyramid(5 );
+        // hollow_rectangle(4, 4);
+         //rhombus(5);
+        // decTobin(7);
+        // bintodec(10100011);
+        // System.out.println("Enter the number");
+        // int n = sc.nextInt();
+        // printRange(n);
+        // boolean result = isprime(n);
+        // if(result){
+        // System.out.println(n + " is a Prime Number");
+        // } else {
+        // System.out.println(n + " is NOT a Prime Number");
+        // }
+    }
+}
